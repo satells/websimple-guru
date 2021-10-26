@@ -1,5 +1,7 @@
 package com.simple.websimple.bootstrap;
 
+//https://www.baeldung.com/hibernate-unsaved-transient-instance-error
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +16,8 @@ public class BootStrapData implements CommandLineRunner {
 	private final AuthorRepository authorRepository;
 	private final BookRepository bookRepository;
 
+	@Autowired
 	public BootStrapData(AuthorRepository authorRepository, BookRepository bookRepository) {
-		super();
 		this.authorRepository = authorRepository;
 		this.bookRepository = bookRepository;
 	}
@@ -26,14 +28,12 @@ public class BootStrapData implements CommandLineRunner {
 		Book ddd = new Book("Domain Driven Design", "123123");
 
 		eric.getBooks().add(ddd);
-
 		ddd.getAuthors().add(eric);
 
 		authorRepository.save(eric);
 		bookRepository.save(ddd);
 
 		Author rod = new Author("Rod", "Johnson");
-
 		Book noEJB = new Book("J2EE Development without EJB", "12345789");
 
 		rod.getBooks().add(noEJB);
@@ -42,6 +42,8 @@ public class BootStrapData implements CommandLineRunner {
 		authorRepository.save(rod);
 		bookRepository.save(noEJB);
 
+		System.out.println("Started in Bootstrap");
+		System.out.println("Number of books: " + bookRepository.count());
+		System.out.println("Number of authors: " + authorRepository.count());
 	}
-
 }
