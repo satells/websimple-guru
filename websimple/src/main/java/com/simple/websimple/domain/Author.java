@@ -25,12 +25,10 @@ public class Author {
 
 	}
 
-	public Author(long id, String firstName, String lastName, List<Book> books) {
+	public Author(String firstName, String lastName) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.books = books;
 	}
 
 	public long getId() {
