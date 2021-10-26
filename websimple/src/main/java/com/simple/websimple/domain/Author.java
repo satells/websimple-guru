@@ -1,6 +1,7 @@
 package com.simple.websimple.domain;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Author {
 	private String lastName;
 	@ManyToMany
 	@JoinTable(name = "author_book")
-	private List<Book> books;
+	private Set<Book> books = new HashSet<Book>();
 
 	public Author() {
 
@@ -55,11 +56,11 @@ public class Author {
 		this.lastName = lastName;
 	}
 
-	public List<Book> getBooks() {
+	public Set<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<Book> books) {
+	public void setBooks(Set<Book> books) {
 		this.books = books;
 	}
 
@@ -89,5 +90,4 @@ public class Author {
 	public String toString() {
 		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", books=" + books + "]";
 	}
-
 }

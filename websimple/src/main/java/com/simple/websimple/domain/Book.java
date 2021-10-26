@@ -1,6 +1,7 @@
 package com.simple.websimple.domain;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,17 +20,15 @@ public class Book {
 	private String isbn;
 	@ManyToMany
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
-	private List<Author> authors;
+	private Set<Author> authors = new HashSet<Author>();
 
 	public Book() {
 	}
 
-	public Book(Long id, String title, String isbn, List<Author> authors) {
+	public Book(String title, String isbn) {
 		super();
-		this.id = id;
 		this.title = title;
 		this.isbn = isbn;
-		this.authors = authors;
 	}
 
 	public Long getId() {
@@ -56,11 +55,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public List<Author> getAuthors() {
+	public Set<Author> getAuthors() {
 		return authors;
 	}
 
-	public void setAuthors(List<Author> authors) {
+	public void setAuthors(Set<Author> authors) {
 		this.authors = authors;
 	}
 
