@@ -1,4 +1,4 @@
-package com.simple.websimple.model;
+package com.simple.websimple.domain;
 
 import java.util.List;
 
