@@ -2,12 +2,11 @@ package com.simple.websimple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class WebsimpleApplication {
-
+public class WebsimpleApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(WebsimpleApplication.class, args);
 	}
-
 }
