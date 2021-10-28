@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class WebsimpleApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
+
+		System.out.println("fdsafd");
 		SpringApplication.run(WebsimpleApplication.class, args);
 	}
 }
